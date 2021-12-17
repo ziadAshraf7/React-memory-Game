@@ -253,7 +253,7 @@ const Game = (props) => {
     let unmatchedItemStyle = "rotateY(0)"
     let [RandomPattern , setRandomPattern] = useState(randomPatternArray[randomNumberIndex])
     let [itemsArray , setitemsArray] = useState([...itemsarr])
-    let [clickedBlock , setclickedBlock] = useState([])
+    let [clickedBlock , setclickedBlock]  = useState([])
     let [clickaccses , setaccses] = useState(true)
     let userinfoRef = useRef()
     let navigate = useNavigate();
@@ -433,6 +433,19 @@ const Game = (props) => {
     },[userinfoRef])
     
 
+    useEffect(() =>{
+        if(matchedItemsNumber == array.length ){
+            alert(`you passed the game at ${60 - time.split(":")[1]} seconds and your wrong tries is ${wrongtries}`)
+            clearInterval(counterdownintervalID)
+            setpassedGameTime(60 - time.split(":")[1])
+            setpassegGame(true)
+            settime("finished")
+            setaccses(true)
+        }
+    },[matchedItemsNumber])
+
+
+
     let flipFunc = (e)=>{
    itemsArray.find((item) =>{
             if(e.target.closest(".block").id == item.id){
@@ -444,7 +457,7 @@ const Game = (props) => {
     }  
 
 
-  
+  console.log(clickedBlock)
 
     let clickedItems = (e)=>{
      
@@ -457,33 +470,25 @@ const Game = (props) => {
             mathcNumber : item.mathcNumber , 
             id : item.id
         })
+        setclickedBlock([...clickedBlock])
         let firstClickedElem = clickedBlock[0]
-
+        let secondClickedElem
         firstClickedElem.ItemElement.style.pointerEvents = "none"   
-
-        let secondClickedElem = clickedBlock[1]
-        
-
+      
+       
 
 
         if(clickedBlock.length == 2){
+            secondClickedElem = clickedBlock[1]
             if(firstClickedElem.mathcNumber == secondClickedElem.mathcNumber){
                 firstClickedElem.ItemElement.style.pointerEvents = "none"    
                 secondClickedElem.ItemElement.style.pointerEvents = "none"   
-                clickedBlock.length = 0
+                setclickedBlock([])
                 setmatchedItemsNumber((prev) => prev + 2)
-                if(matchedItemsNumber == array.length - 2){
-                    alert(`you passed the game at ${60 - time.split(":")[1]} seconds and your wrong tries is ${wrongtries}`)
-                    clearInterval(counterdownintervalID)
-                    setpassedGameTime(60 - time.split(":")[1])
-                    setpassegGame(true)
-                    settime("finished")
-                    setaccses(true)
-                }
             }else{
                 firstClickedElem.ItemElement.style.pointerEvents = "all"    
                 secondClickedElem.ItemElement.style.pointerEvents = "all"   
-                clickedBlock.length = 0
+                setclickedBlock([])
                 setaccses(true)
                 setTimeout(() => {
                   let items = itemsArray.map((item) =>{
