@@ -17,6 +17,8 @@ import { getAuth } from '@firebase/auth';
           setpageaccses(false)
           navigate("/game")
     
+        }else{
+          setpageaccses(true)
         }
        
       })
