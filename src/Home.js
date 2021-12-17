@@ -28,7 +28,9 @@ import { getAuth } from '@firebase/auth';
 
       return ( 
           <>
-
+  <div className='header'>
+    <h2>Memory Game</h2>
+  </div>
           {pageaccses &&
           <div className = "Home-wrapper">
         <div className = "img">

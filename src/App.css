@@ -12,6 +12,21 @@ body{
   overflow-y: hidden;
 }
 
+.header{
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 6;
+  top: 10px;
+}
+
+.header h2{
+  font-size: 50px;
+  letter-spacing: 5px;
+  color: #363434;
+}
+
+
 
 .not-found{
   text-align: center;
@@ -24,11 +39,24 @@ body{
 }
 
 .container-wrapper .Retry-btn{
+  z-index: 7;
+  width: 100%;
+  height: 100%;
+}
+
+.container-wrapper .Retry-btn .retry {
+  left: 50%;
+  top: 36%;
+  transform: translateX(-50%) ;
   position: absolute;
-  right:  200px;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 6;
+}
+
+.container-wrapper .Retry-btn::before{
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.658);
 }
 
 .container-wrapper .ui-wrapper{
@@ -40,6 +68,7 @@ body{
 }
 
 .container-wrapper .wrapper{
+  position: relative;
   display: grid;
   place-items: center;
   grid-template-columns: repeat(5, 1fr);
@@ -49,6 +78,7 @@ body{
   margin-top: calc(50% + 49px);
   transform: translateY(-50%);
   width: 585px;
+  height: 100%;
 }
 
 
@@ -90,7 +120,7 @@ body{
   z-index: 6;
   width: 160px;
   height: 100vh;
-  background-color: #101214c4;
+  background-color: #000000cf;
 }
 
 .container-wrapper .sidebar .wrapp{
@@ -302,6 +332,7 @@ body{
 
 .form .form-style{
   position: absolute;
+  width: 337px;
   background-color: rgba(0, 0, 0, 0.616);
   padding: 20px;
   border: 1px solid rgb(12, 12, 12);
@@ -334,6 +365,7 @@ body{
 .container-wrapper .ui-wrapper .game-data-wrapper{
   position: relative;
   z-index: 6;
+  height: 100%;
   width: calc(100% - 160px);
 }
 
@@ -453,6 +485,20 @@ body{
   .container-wrapper .ui-wrapper .game-data-wrapper .game-data {
     width: 403px;
 }
+
+.user-history-data .user-info-data h5{
+  font-size: 16px;
+}
+.user-history-data h6{
+  font-size: 15px;
+}
+
+.user-history-data > div{
+  font-size: 14px;
+}
+.header h2 {
+  font-size: 40px;
+}
 }
 
 
@@ -485,6 +531,19 @@ body{
 .container-wrapper .sidebar .users-history-btn-control .history-btn-control {
   font-size: 8px;
 }
+.user-history-data .user-info-data h5{
+  font-size: 15px;
+}
+.user-history-data h6{
+  font-size: 14px;
+}
+
+.user-history-data > div{
+  font-size: 13px;
+}
+.header h2 {
+  font-size: 26px;
+}
 }
 
 @media(max-width:475px){
@@ -506,6 +565,24 @@ body{
 .container-wrapper .sidebar .user-info .userimg {
   width: 42px;
 }
+
+.sinOut{
+  width: 57px;
+  font-size: 10px;
+}
+.user-history-data .user-info-data h5{
+  font-size: 10px;
+}
+.user-history-data h6{
+  font-size: 8px;
+}
+
+.user-history-data > div{
+  font-size: 7px;
+}
+.header h2 {
+  font-size: 22px;
+}
 }
 
 @media(max-width : 400px){
@@ -520,5 +597,8 @@ body{
 }
 .container-wrapper .ui-wrapper .game-data-wrapper .wrapp {
   left: 13px;
+}
+.header h2 {
+  font-size: 18px;
 }
 }

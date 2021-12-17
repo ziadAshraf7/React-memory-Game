@@ -14,7 +14,7 @@ const Login = (props) => {
   let PasswordRef = useRef()
   let [Autherror , setautherror] = useState(false)
   let [pageaccses , setpageaccses] = useState(true)
-
+  let [loading , setloading] = useState(false)
 
   useEffect(() =>{
     onAuthStateChanged(Auth , (user) =>{
@@ -29,6 +29,7 @@ const Login = (props) => {
 
 
   let UserLogin = (e , email , password) =>{
+    setloading(true)
     e.preventDefault()
     if(email != "" &&  password != ""){
       signInWithEmailAndPassword(Auth , email , password).then(
@@ -37,7 +38,9 @@ const Login = (props) => {
           navigate("/game")
         }
       ).catch(
-        (err) => setautherror(true)
+        (err) => {setautherror(true)
+          setloading(false)
+        }
       )
       email = ""
       password = ""
@@ -59,7 +62,7 @@ const Login = (props) => {
         <Form onSubmit = {(e) => UserLogin(e ,EmailRef.current.value , PasswordRef.current.value )}>
   <Form.Group className="mb-3" controlId="formBasicEmail">
   <Form.Label>Email address</Form.Label>
-  <Form.Control ref = {EmailRef} type="email" placeholder="Enter email" />
+  <Form.Control ref = {EmailRef} type="email" placeholder="Enter email"  required/>
   <Form.Text className="text-muted">
     We'll never share your email with anyone else.
   </Form.Text>
@@ -67,12 +70,15 @@ const Login = (props) => {
 
 <Form.Group className="mb-3" controlId="formBasicPassword">
   <Form.Label>Password</Form.Label>
-  <Form.Control ref = {PasswordRef} type="password" placeholder="Password" />
+  <Form.Control ref = {PasswordRef} type="password" placeholder="Password" required/>
 </Form.Group>
 
-<Button variant="primary" type="submit">
+  {!loading && <Button variant="primary" type="submit">
   Login
-</Button>
+  </Button>}
+  {loading && <button className="btn btn-primary" >
+  loging in ...
+  </button>}
 </Form>
         </div>
     </div>

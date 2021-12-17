@@ -23,7 +23,8 @@ const SignUp =(props) =>  {
   let formwrapperRef = useRef() 
   let alertRef = useRef()
   let [pageaccses , setpageaccses] = useState(true)
-
+  let [loading , setloading] = useState(false)
+  let [errormessage , seterrormessage] = useState(false)
 
   useEffect(() =>{
     onAuthStateChanged(Auth , (user) =>{
@@ -42,7 +43,7 @@ const SignUp =(props) =>  {
   let signNewUser = (e ,email , name , password , repassword) =>{
     e.preventDefault()
     if(email != "" && name != "" && password != "" && repassword != ""  ){
-
+      setloading(true)
       if(password == repassword){
         setpasswordError(false)
         
@@ -63,10 +64,14 @@ const SignUp =(props) =>  {
             navigate("/game")
            }
         ).catch(
-          (err) => console.log(err)
+          (err) => {
+            setloading(false)
+            seterrormessage(true)
+          }
         )
       }else{
         setpasswordError(true)
+        setloading(false)
       }
 
 
@@ -92,6 +97,9 @@ const SignUp =(props) =>  {
         {passwordError && <div   className = "alert">
           the password field should equal to repassword field
           </div>}
+          {errormessage && <div   className = "alert">
+          the current email is used by a user
+          </div>}
         <div  ref={formwrapperRef} className="form-style">
         <Form onSubmit = {(e) => signNewUser(e , EmailRef.current.value , NameRef.current.value , PasswordRef.current.value ,rePasswordRef.current.value )}>
   <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -102,7 +110,7 @@ const SignUp =(props) =>  {
     </Form.Text>
   </Form.Group>
 
-  <Form.Group className="mb-3" controlId="formBasicEmail">
+  <Form.Group className="mb-3" >
     <Form.Label>Full Name</Form.Label>
     <Form.Control ref = {NameRef} size = "sm" type="text" placeholder="Enter name"  required/>
   </Form.Group>
@@ -117,9 +125,12 @@ const SignUp =(props) =>  {
     <Form.Control ref = {rePasswordRef} size = "sm" type="password" placeholder="Password" required />
   </Form.Group>
 
-  <Button variant="primary" type="submit" >
-    SignUp
-  </Button>
+  {!loading && <Button variant="primary" type="submit">
+  SignUp
+  </Button>}
+  {loading && <button className="btn btn-primary" >
+  Signing up...
+  </button>}
 </Form>
         </div>
         </div>
