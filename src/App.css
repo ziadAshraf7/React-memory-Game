@@ -1,0 +1,524 @@
+
+
+
+ *{
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   font-style: 'Source Serif Pro', serif;
+ }
+
+body{
+  overflow-y: hidden;
+}
+
+
+.not-found{
+  text-align: center;
+}
+
+.container-wrapper{
+  position: relative;
+  height: 100vh;
+  width: 100%;
+}
+
+.container-wrapper .Retry-btn{
+  position: absolute;
+  right:  200px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 6;
+}
+
+.container-wrapper .ui-wrapper{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 6;
+  display: flex;
+}
+
+.container-wrapper .wrapper{
+  display: grid;
+  place-items: center;
+  grid-template-columns: repeat(5, 1fr);
+  grid-row-gap: 10px;
+  row-gap: 16px;
+  perspective: 600px;
+  margin-top: calc(50% + 49px);
+  transform: translateY(-50%);
+  width: 585px;
+}
+
+
+
+
+.container-wrapper .wrapper .block{
+  width: 95px;
+  height: 95px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: all 0.5s;
+  transform-origin: center center;
+  user-select: none;
+}
+
+
+.container-wrapper .block .face {
+  position: absolute;
+  background-color: rgb(34, 34, 34);
+  border: 2px solid crimson;
+  width: 100%;
+  height: 100%;
+  transition: all 0.5s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-wrapper .wrapper .block .front{
+  backface-visibility: hidden;
+}
+
+.container-wrapper .wrapper .block img{
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+}
+.container-wrapper .sidebar{
+  z-index: 6;
+  width: 160px;
+  height: 100vh;
+  background-color: #101214c4;
+}
+
+.container-wrapper .sidebar .wrapp{
+  width: 100%;
+  position: relative;
+  height: 100%;
+}
+
+.container-wrapper .sidebar .user-info{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-top: 16px;
+}
+
+.container-wrapper .sidebar .user-info .username{
+  font-size: 17px;
+}
+
+.container-wrapper .sidebar .user-info  .userimg{
+  width: 62px;
+}
+
+.container-wrapper .sidebar .user-info  .userimg img{
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+}
+
+
+.container-wrapper .sidebar .signout{
+  position: absolute;
+  bottom: 40px;
+  left: 10px;
+  z-index: 1;
+}
+
+.container-wrapper .user-info{
+ position: absolute;
+ z-index: 5;
+ color: #eee;
+}
+
+.container-wrapper .user-history-data {
+  position: absolute;
+  z-index: 15;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.801);
+}
+
+
+.container-wrapper .user-history-data .wrapp{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  background-color: #eee;
+  width: 70%;
+  height: 85%;
+  transition: all 0.3s;
+  border-radius: 14px;
+}
+
+.container-wrapper .user-history-data .wrapp .data-wrapper{
+  position: absolute;
+  padding: 10px;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  width: 100%;
+  height: 66%;
+  border: 1px solid black;
+  background-color: white;
+  overflow-y: auto;
+}
+
+.container-wrapper .user-history-data .wrapp .data-wrapper .data{
+  display: grid;
+  grid-template-columns: repeat(3 , 1fr);
+  grid-template-rows: repeat(auto ,auto);
+  border-bottom: 1px solid rgb(31, 30, 30);
+  border-top: 1px solid rgb(31, 30, 30);
+  margin-bottom: 30px;
+}
+
+.container-wrapper .user-history-data .wrapp .user-info-data{
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  background-color: #eee;
+  text-align: center;
+ }
+.container-wrapper .user-history-data .wrapp .data .user-last-result{
+  height: fit-content;
+  text-align: center;
+}
+.container-wrapper .user-history-data .wrapp .close{
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.container-wrapper .user-history-data .wrapp .close .btn{
+  width: 46px;
+}
+
+.container-wrapper .user-history-data .wrapp .close .btn img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.container-wrapper .sidebar  .users-history-btn-control{
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+  border-top: 1px solid #eee6;
+  border-bottom: 1px solid #eee6;
+}
+
+
+
+.container-wrapper .sidebar  .users-history-btn-control .history-btn-control{
+  width: 100%;
+  padding: 10px;
+  color: white;
+  font-size: 12px;
+}
+
+ .btn{
+   border: none;
+ }
+
+.Home-wrapper{
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+
+ .img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+
+}
+
+ .img img{
+  object-fit: cover;
+  width: 100%;
+  height: 100vh;
+}
+
+ .img::before{
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.87);
+}
+
+
+.Home-wrapper .buttons{
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.Home-wrapper .buttons button{
+  margin-bottom: 10px;
+}
+
+
+
+.form{
+  position: relative;
+  height: 100vh;
+}
+
+.form .img{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.form .img img{
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+}
+
+.form .img::before{
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.767);
+}
+
+.form .form-style{
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.616);
+  padding: 20px;
+  border: 1px solid rgb(12, 12, 12);
+  border-radius: 20px;
+  color: white;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.form .alert{
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgb(215 3 47);
+  border: 1px solid rgb(241, 8, 8);
+  border-radius: 10px;
+  color: white;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  height: 49px;
+  top: 8px;
+
+}
+
+.login .alert{
+  top: 84px;
+}
+.container-wrapper .ui-wrapper .game-data-wrapper{
+  position: relative;
+  z-index: 6;
+  width: calc(100% - 160px);
+}
+
+.container-wrapper .ui-wrapper .game-data-wrapper .wrapp{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  left: calc(50% - 72px);
+  transform: translateX(-50%);
+  width: fit-content;
+}
+.container-wrapper .ui-wrapper .game-data-wrapper .game-data {
+  width: 600px;
+  height: 58px;
+  color: #eee;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: rgb(18 17 17 / 72%);
+
+}
+
+
+.container-wrapper .bg-wrapper{
+  position: absolute;
+  z-index: 11;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-wrapper .bg-wrapper::after{
+  position: absolute;
+  content: "";
+  z-index: -1;
+  background-color: rgba(0, 0, 0, 0.842);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+
+/* responsive */
+
+@media(min-width:1200px){
+
+}
+
+
+
+
+@media(min-width : 992px){
+  .container-wrapper .wrapper{
+    margin-top: 42%;
+ 
+  }
+}
+
+
+@media(max-width:992px){
+  .container-wrapper .wrapper{
+    row-gap: 23px;
+    width: 473px;
+  }
+  .container-wrapper .sidebar{
+    width: 140px;
+  }
+  .container-wrapper .ui-wrapper .game-data-wrapper .game-data{
+    width: 469px;
+  }
+  .container-wrapper .wrapper .block{
+    width: 76px;
+    height: 83px;
+  }
+  .container-wrapper .ui-wrapper .game-data-wrapper{
+    width: calc(100% - 140px);
+  }
+  .container-wrapper .sidebar .users-history-btn-control .history-btn-control{
+    font-size: 10px;
+  }
+  
+
+.container-wrapper .sidebar .user-info .userimg {
+    width: 59px;
+}
+
+.container-wrapper .sidebar .user-info .username {
+  font-size: 15px;
+}
+}
+
+
+
+@media(max-width:768px){
+  .container-wrapper .ui-wrapper .game-data-wrapper .wrapp{
+    left: 77px;
+   transform: none;
+  }
+
+  .container-wrapper .wrapper{
+  
+    row-gap: 17px;
+    width: 391px;
+  }
+  .container-wrapper .wrapper .block{
+    width: 58px;
+    height: 68px;
+  }
+
+  .game-data >div{
+    font-size: 12px;
+  }
+  .container-wrapper .ui-wrapper .game-data-wrapper .game-data {
+    width: 403px;
+}
+}
+
+
+@media(max-width : 600px){
+  .container-wrapper .wrapper{
+    width: 356px;
+  }
+  .container-wrapper .ui-wrapper .game-data-wrapper .game-data {
+    width: 287px;
+}
+.game-data >div {
+  font-size: 10px;
+}
+.container-wrapper .sidebar .users-history-btn-control .history-btn-control {
+  font-size: 9px;
+}
+.container-wrapper .sidebar .user-info .userimg {
+  width: 49px;
+}
+
+.container-wrapper .sidebar .user-info .username {
+  font-size: 13px;
+}
+.container-wrapper .ui-wrapper .game-data-wrapper .wrapp {
+  left: 50px;
+}
+.container-wrapper .sidebar {
+  width: 105px;
+}
+.container-wrapper .sidebar .users-history-btn-control .history-btn-control {
+  font-size: 8px;
+}
+}
+
+@media(max-width:475px){
+  .container-wrapper .wrapper{
+    grid-template-columns: repeat(4, 1fr);
+    width: 298px;
+    margin-top: calc(50% + 105px);
+  }
+  .container-wrapper .ui-wrapper .game-data-wrapper .game-data {
+    width: 287px;
+}
+
+.container-wrapper .sidebar {
+  width: 75px;
+}
+.container-wrapper .ui-wrapper .game-data-wrapper .wrapp {
+  left: 25px;
+}
+.container-wrapper .sidebar .user-info .userimg {
+  width: 42px;
+}
+}
+
+@media(max-width : 400px){
+  .container-wrapper .sidebar {
+    width: 67px;
+}
+.container-wrapper .ui-wrapper .game-data-wrapper .game-data {
+  width: 253px;
+}
+.container-wrapper .wrapper {
+  width: 267px;
+}
+.container-wrapper .ui-wrapper .game-data-wrapper .wrapp {
+  left: 13px;
+}
+}
