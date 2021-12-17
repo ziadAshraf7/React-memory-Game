@@ -254,7 +254,7 @@ const Game = (props) => {
     let [RandomPattern , setRandomPattern] = useState(randomPatternArray[randomNumberIndex])
     let [itemsArray , setitemsArray] = useState([...itemsarr])
     let [clickedBlock , setclickedBlock] = useState([])
-    let [clickaccses , setaccses] = useState(false)
+    let [clickaccses , setaccses] = useState(true)
     let userinfoRef = useRef()
     let navigate = useNavigate();
     let [pageaccses , setpageaccses] = useState(false)
@@ -375,6 +375,7 @@ const Game = (props) => {
 
 
     useEffect(() =>{ 
+       
         if(startingGame){
         let counter = 60
         setTimeout(() => {
@@ -416,7 +417,7 @@ const Game = (props) => {
 
    
  
-
+ 
     useEffect(() =>{
        onAuthStateChanged(Auth , (user) =>{
            if(user && userinfoRef.current){
@@ -518,8 +519,8 @@ setTimeout(() => {
         return item
     })
     setitemsArray([...arr])
+    setaccses(false)
 }, 1500);
-
 
 setstartingGame(true) // start counter down
     
@@ -535,7 +536,7 @@ setstartingGame(true) // start counter down
     setdisplayUserLastResultBar(false)
    }
 
-   let RetryGame = async() =>{
+   let RetryGame = () =>{
     let randomNumberIndex = Math.floor(Math.random() * randomPatternArray.length)
     setRandomPattern(randomPatternArray[randomNumberIndex])
     wrapperRef.current.childNodes.forEach(item =>{
@@ -548,10 +549,8 @@ setstartingGame(true) // start counter down
             setstartingGame(true)
         }, 1500);
         startPlay()
-        setaccses(false)
         setwrongtries(0)
     }, 500);
-    
    }
 
 
