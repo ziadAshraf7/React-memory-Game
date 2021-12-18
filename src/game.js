@@ -441,6 +441,7 @@ const Game = (props) => {
             setpassegGame(true)
             settime("finished")
             setaccses(true)
+            setmatchedItemsNumber(0)
         }
     },[matchedItemsNumber])
 
@@ -556,6 +557,7 @@ setstartingGame(true) // start counter down
         startPlay()
         setwrongtries(0)
     }, 500);
+    setmatchedItemsNumber(0)
    }
 
 
