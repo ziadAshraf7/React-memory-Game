@@ -1,88 +1,66 @@
-import {Form} from "react-bootstrap"
 import { useNavigate } from 'react-router-dom';
 import { useRef, useState } from "react"
-import {Button} from "react-bootstrap"
-import { setDoc , doc } from "@firebase/firestore"
-import {getAuth , signInWithEmailAndPassword } from "firebase/auth"
-import { onAuthStateChanged } from '@firebase/auth';
+import { signInWithEmailAndPassword } from "firebase/auth"
 import { useEffect } from "react";
 const Login = (props) => {
 
-  const Auth = getAuth()
-  let navigate = useNavigate()
-  let EmailRef = useRef()
-  let PasswordRef = useRef()
-  let [Autherror , setautherror] = useState(false)
-  let [pageaccses , setpageaccses] = useState(true)
-  let [loading , setloading] = useState(false)
+  const {Auth} = props.props
+  const navigate = useNavigate()
+  let Email= useRef("")
+  let Password  = useRef("")
+  let [LogigngInError , setLogigngInError] = useState(false)
+  let ErrorMessage = useRef("")
+  let [logingIn , setlogingIn] = useState(false)
 
-  useEffect(() =>{
-    onAuthStateChanged(Auth , (user) =>{
-      if(user){
-        setpageaccses(false)
+
+
+  const LogInFunc = (e , Email , Password) => {
+    e.preventDefault()
+    setlogingIn(true)
+    signInWithEmailAndPassword(Auth , Email , Password).then(
+      (cred) => {
+        navigate("../game")
       }
+    ).catch(err => {
+      setLogigngInError(true)
+      setlogingIn(false)
+      
+        let Error = String(err)
+
+      if(Error.includes("wrong-password")){
+        ErrorMessage.current = "Your Password is Incorrect"
+      }else if(Error.includes("user-not-found")){
+        ErrorMessage.current = "Your Account doesn't Exist"
+      }else{
+        ErrorMessage.current = "Connection Failed , please check your Connection"
+
+      }
+
+
     })
 
-    return () => setpageaccses(false)
-} , [])
-
-
-
-  let UserLogin = (e , email , password) =>{
-    setloading(true)
-    e.preventDefault()
-    if(email != "" &&  password != ""){
-      signInWithEmailAndPassword(Auth , email , password).then(
-        (res) => {
-          setautherror(false)
-          navigate("/game")
-        }
-      ).catch(
-        (err) => {setautherror(true)
-          setloading(false)
-        }
-      )
-      email = ""
-      password = ""
-    }
   }
+
+  useEffect(() =>{
+    if(LogigngInError == true){
+      setTimeout(() => {
+        setLogigngInError(false)
+      }, 4000);
+    }
+  },[LogigngInError])
+
 
 
     return ( 
       <>
-      {pageaccses && 
-    <div className="form login">
-        <div className = "img">
-            <img src = {require("./img/2488408.jpg").default}></img>
-        </div>
-        {Autherror && <div className = "alert">
-          the Email and password are incorrect
-          </div>}
-        <div className = "form-style">
-        <Form onSubmit = {(e) => UserLogin(e ,EmailRef.current.value , PasswordRef.current.value )}>
-  <Form.Group className="mb-3" controlId="formBasicEmail">
-  <Form.Label>Email address</Form.Label>
-  <Form.Control ref = {EmailRef} type="email" placeholder="Enter email"  required/>
-  <Form.Text className="text-muted">
-    We'll never share your email with anyone else.
-  </Form.Text>
-</Form.Group>
-
-<Form.Group className="mb-3" controlId="formBasicPassword">
-  <Form.Label>Password</Form.Label>
-  <Form.Control ref = {PasswordRef} type="password" placeholder="Password" required/>
-</Form.Group>
-
-  {!loading && <Button variant="primary" type="submit">
-  Login
-  </Button>}
-  {loading && <button className="btn btn-primary" >
-  loging in ...
-  </button>}
-</Form>
-        </div>
-    </div>
-}
+         <form onSubmit={(e) => LogInFunc(e , Email.current,Password.current)} className="Form">
+          {LogigngInError && <div className="Error">{ErrorMessage.current}</div>}
+          <p className='FormHeader'>Login</p>
+          <input type="email"  onChange={(e) => Email.current = e.target.value} placeholder="E-mail" required />
+          <input type="password"  onChange={(e) => Password.current = e.target.value} placeholder="Password" required/>
+        { !logingIn &&  <input type={"submit"} value = {"LogIn"} className="btn"/>}
+        { logingIn &&  <input type={"submit"} value = {"Loging in ..."} className="btn"/>}
+        </form>
     </>
      );
 }
