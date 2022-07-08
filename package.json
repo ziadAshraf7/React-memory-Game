@@ -20,6 +20,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "./node_modules/.bin/netlify-lambda serve src",
+    "eject" : "react-scripts ejext" ,
     "build": "CI='' npm run build"
   },
   "eslintConfig": {
