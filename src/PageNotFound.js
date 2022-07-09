@@ -20,16 +20,13 @@ let PageNotFound = (props) =>{
                 
                 if(Authenticated){
                     navigate("../game")
-                    console.log("kk1")
                 }else if((CredStatus == false )){
                     signOut(Auth)
                     navigate("../home")
-                    console.log("kk2")
 
                 }else if(CredStatus){
                     signOut(Auth)
                     navigate("../home")
-                    console.log("kk3")
 
                 }
                 
