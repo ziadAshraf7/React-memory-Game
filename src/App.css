@@ -618,10 +618,6 @@ transform: rotateY(
         height: 30px;
       }
     
-      .Game-Container .Blocks-Container{
-        grid-row: 2/2;
-        grid-column: inherit;
-      }
       .Game-Container .Blocks-Container .Blocks{
         width: 85%;
       }
