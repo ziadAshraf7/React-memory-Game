@@ -32,9 +32,7 @@
   z-index: 0;
  }
 
- .LogOut{
-  padding: 10px 40px;
- }
+
 
  .CoverPic::before {
   position: absolute;
@@ -141,6 +139,13 @@
   color: white;
  }
 
+ .User-Container-data .LogOut{
+  position: absolute;
+  padding: 10px 40px;
+  top: 10px;
+  left: 10px;
+ }
+
  .User-Container-data .Userdata{
     height: 50%;
     width: 100%;
@@ -213,10 +218,7 @@
   grid-column: 1/1;
 }
 
-.Game-Container .Retry-Round .Retry-Round-btn {
-  grid-column: 2/50;
-  grid-row: 85/100;
-}
+
 
 .Cart-parent{
   position: relative;
@@ -506,8 +508,9 @@ transform: rotateY(
         height: 25px;
       }
       .Game-Container{
-        grid-template-rows: 10% 80% 10%;
+        display: grid;
         grid-template-columns: 100%;
+        grid-template-rows: 10% 80% 10%;
         width: 100vw;
       }
       .Game-Container .Blocks-Container{
@@ -524,18 +527,16 @@ transform: rotateY(
         height: fit-content;
         grid-column: inherit;
         justify-content: center;
+        grid-row: 1/1;
       }
 
 
       .Game-Container .Retry-Round {
-        grid-row: 3/3;
+        display: initial;
         height: fit-content;
-        position: absolute;
-        bottom: 10px;
-        left: 25px;
         margin-left: 0;
         margin-top: 0;
-        
+        grid-row: 3/3;
     }
 
     .Home-wrapper .header > p{
@@ -561,24 +562,29 @@ transform: rotateY(
      .Modal > div > p{
       font-size: 13px;
      }
+     .GameBTN{
+      padding: 4px 15px;
+      font-size: 13px;
+     }
 
     .Game-Container .Game-data .GameBTN {
-    position: absolute;
-    bottom: 10px;
-    right: 25px;
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
   }
   .Game-Container .Game-data .Game-data-bar {
+
     width: 300px;
-    margin-top: 5px;
     height: 30px;
     border-radius: 5px 5px 5px 5px;
     font-size: 13px;
-
+    margin-top: 20px;
   }
 
-.GameBTN{
-  padding: 4px 15px;
-  font-size: 13px;
+.Retry-Round-btn .GameBTN{
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
 }
     }
 
@@ -592,6 +598,11 @@ transform: rotateY(
 
    
     @media (max-width : 400px){
+     .User-Container-data .LogOut {
+
+        padding: 6px 22px;
+        font-size: 10px;
+    }
       .Form .Error{
         font-size: 12px;
       }
@@ -604,6 +615,9 @@ transform: rotateY(
       .Form input{
         height: 20px;
       }
+      .Credential{
+        column-gap: 100px;
+      }
       .Credential img{
         width: 30px;
         height: 30px;
@@ -614,7 +628,7 @@ transform: rotateY(
         width: 100vw;
       }
       .Game-Container .Blocks-Container{
-        grid-row: 2/3;
+        grid-row: 2/2;
         grid-column: inherit;
       }
       .Game-Container .Blocks-Container .Blocks{
@@ -638,11 +652,7 @@ transform: rotateY(
         bottom: 10px;
         left: 25px;
     }
-    .Game-Container .Game-data .GameBTN {
-    position: absolute;
-    bottom: 10px;
-    right: 25px;
-  }
+  
   .Game-Container .Game-data .Game-data-bar {
     width: 245px;
     margin-top: 5px;

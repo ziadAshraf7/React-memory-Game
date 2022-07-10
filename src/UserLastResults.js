@@ -13,8 +13,8 @@ let UserLastResults = (props) =>{
     if(userDataLoading){
         if(ErrorFetchingData){
             return  <div style={UserInfoCompAccses ? {transform : "translateY(0)"} : {transform : "translateY(-102%)"}} className="User-Container-data">
-                {IsUserOnline == true && <div style={{position : "absolute" , left : 0 , top : 0 }}>  <button className="LogOut" onClick={LogingOutFunc}>LogOut</button></div>}
-                {IsUserOnline == false && <div style={{position : "absolute" , left : 0 , top : 0 }}>  <button className="LogOut" onClick={LogingOutFunc}>Loging out...</button></div>}
+                {IsUserOnline == true && <div>  <button className="LogOut" onClick={LogingOutFunc}>LogOut</button></div>}
+                {IsUserOnline == false && <div >  <button className="LogOut" onClick={LogingOutFunc}>Loging out...</button></div>}
             <div style={{ width : "100%", height : "100%" , rowGap : "10px" ,display : "flex" , flexDirection : "column" , justifyContent : "center" , alignItems : "center"}}>
            <div>The data Failed To Load please check your connection and click the button below</div>
             <div style = {{fontSize : "10px" , color : "rgb(88 77 77)"}}>The weak connection will prevent your passed game result to be stored in your history plays</div>
@@ -23,15 +23,15 @@ let UserLastResults = (props) =>{
             </div>
         }
       return  <div style={UserInfoCompAccses ? {transform : "translateY(0)"} : {transform : "translateY(-102%)"}} className="User-Container-data">
-        {IsUserOnline == true && <div style={{position : "absolute" , left : 0 , top : 0 }}>  <button className="LogOut" onClick={LogingOutFunc}>LogOut</button></div>}
-        {IsUserOnline == false && <div style={{position : "absolute" , left : 0 , top : 0 }}>  <button className="LogOut" onClick={LogingOutFunc}>Loging out...</button></div>}
+        {IsUserOnline == true && <div >  <button className="LogOut" onClick={LogingOutFunc}>LogOut</button></div>}
+        {IsUserOnline == false && <div >  <button className="LogOut" onClick={LogingOutFunc}>Loging out...</button></div>}
          <div style={{ width : "100%", height : "100%" , display : "flex" , justifyContent : "center" , alignItems : "center"}}>Data is Fetching...</div>
          </div>
          
     }else if(userHistoryData.length == 0){
       return  <div style={UserInfoCompAccses ? {transform : "translateY(0)"} : {transform : "translateY(-102%)"}} className="User-Container-data">
-        {IsUserOnline == true && <div style={{position : "absolute" , left : 0 , top : 0 }}>  <button className="LogOut" onClick={LogingOutFunc}>LogOut</button></div>}
-        {IsUserOnline == false && <div style={{position : "absolute" , left : 0 , top : 0 }}>  <button className="LogOut" onClick={LogingOutFunc}>Loging out...</button></div>}
+        {IsUserOnline == true && <div >  <button className="LogOut" onClick={LogingOutFunc}>LogOut</button></div>}
+        {IsUserOnline == false && <div >  <button className="LogOut" onClick={LogingOutFunc}>Loging out...</button></div>}
                             <div className="Userdata">
                                 <div className="User-icon"><img  src = {require("./img/account.png").default}/></div>
                                 <div className="User-name">{userName}</div>
@@ -44,8 +44,8 @@ let UserLastResults = (props) =>{
     else{
         return <>
         <div style={UserInfoCompAccses ? {transform : "translateY(0)"} : {transform : "translateY(-102%)"}} className="User-Container-data">
-{IsUserOnline == true && <div style={{position : "absolute" , left : 0 , top : 0 }}>  <button className="LogOut" onClick={LogingOutFunc}>LogOut</button></div>}
-{IsUserOnline == false && <div style={{position : "absolute" , left : 0 , top : 0 }}>  <button className="LogOut">Loging out...</button></div>}
+{IsUserOnline == true && <div >  <button className="LogOut" onClick={LogingOutFunc}>LogOut</button></div>}
+{IsUserOnline == false && <div >  <button className="LogOut">Loging out...</button></div>}
                     <div className="Userdata">
                         <div className="User-icon"><img  src = {require("./img/account.png").default}/></div>
                         <div className="User-name">{userName}</div>
