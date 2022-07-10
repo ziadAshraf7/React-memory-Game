@@ -1,0 +1,40 @@
+{
+  "files": {
+    "main.css": "/React-memory-Game/static/css/main.dcfaa90d.chunk.css",
+    "main.js": "/React-memory-Game/static/js/main.f0ad113b.chunk.js",
+    "main.js.map": "/React-memory-Game/static/js/main.f0ad113b.chunk.js.map",
+    "runtime-main.js": "/React-memory-Game/static/js/runtime-main.a168a6c5.js",
+    "runtime-main.js.map": "/React-memory-Game/static/js/runtime-main.a168a6c5.js.map",
+    "static/js/2.e23e2a40.chunk.js": "/React-memory-Game/static/js/2.e23e2a40.chunk.js",
+    "static/js/2.e23e2a40.chunk.js.map": "/React-memory-Game/static/js/2.e23e2a40.chunk.js.map",
+    "index.html": "/React-memory-Game/index.html",
+    "static/css/main.dcfaa90d.chunk.css.map": "/React-memory-Game/static/css/main.dcfaa90d.chunk.css.map",
+    "static/js/2.e23e2a40.chunk.js.LICENSE.txt": "/React-memory-Game/static/js/2.e23e2a40.chunk.js.LICENSE.txt",
+    "static/media/1200px-Vue.js_Logo_2.svg.webp": "/React-memory-Game/static/media/1200px-Vue.js_Logo_2.svg.3005267b.webp",
+    "static/media/2449640.jpg": "/React-memory-Game/static/media/2449640.bb8b4121.jpg",
+    "static/media/2488356.jpg": "/React-memory-Game/static/media/2488356.e74d76ea.jpg",
+    "static/media/2488408.jpg": "/React-memory-Game/static/media/2488408.19ef065b.jpg",
+    "static/media/2cd43b_b13c89d3859a48129a434265b3ddd1a1_mv2_d_1826_1920_s_2.png": "/React-memory-Game/static/media/2cd43b_b13c89d3859a48129a434265b3ddd1a1_mv2_d_1826_1920_s_2.e9e4943a.png",
+    "static/media/360_F_326319663_Qx09DAOKPIQYVP9jU0mBeDlPTBKhqR96.jpg": "/React-memory-Game/static/media/360_F_326319663_Qx09DAOKPIQYVP9jU0mBeDlPTBKhqR96.99963cd0.jpg",
+    "static/media/7-2-arrow-png-picture.png": "/React-memory-Game/static/media/7-2-arrow-png-picture.af9ae1b1.png",
+    "static/media/Download Abstract Background for free.jfif": "/React-memory-Game/static/media/Download Abstract Background for free.a6b71d9f.jfif",
+    "static/media/account.png": "/React-memory-Game/static/media/account.8cfc8dbc.png",
+    "static/media/angular-14a0f6532f.png": "/React-memory-Game/static/media/angular-14a0f6532f.a0a4959a.png",
+    "static/media/b7ffa7fc9c4ceafa0013dfa3f803bcc8.jpg": "/React-memory-Game/static/media/b7ffa7fc9c4ceafa0013dfa3f803bcc8.59467654.jpg",
+    "static/media/google-logo-png-open-2000.png": "/React-memory-Game/static/media/google-logo-png-open-2000.23d7e8b3.png",
+    "static/media/light-bulb-png-pic-5a3c39d22187a3.1526649215138964021374.jpg": "/React-memory-Game/static/media/light-bulb-png-pic-5a3c39d22187a3.1526649215138964021374.baf07763.jpg",
+    "static/media/memory-e1510691784822.jpg": "/React-memory-Game/static/media/memory-e1510691784822.a31b5aed.jpg",
+    "static/media/pngtree-facebook-social-media-icon-design-template-vector-png-image_3654755.jpg": "/React-memory-Game/static/media/pngtree-facebook-social-media-icon-design-template-vector-png-image_3654755.eed4499b.jpg",
+    "static/media/shining-circle-purple-lighting-isolated-dark-background_1441-2396.webp": "/React-memory-Game/static/media/shining-circle-purple-lighting-isolated-dark-background_1441-2396.30ee1407.webp",
+    "static/media/user.png": "/React-memory-Game/static/media/user.724b79cd.png",
+    "static/media/—Pngtree—2022 poster_6681272.png": "/React-memory-Game/static/media/—Pngtree—2022 poster_6681272.6da12318.png",
+    "static/media/—Pngtree—cartoon bee clipart_4160541.png": "/React-memory-Game/static/media/—Pngtree—cartoon bee clipart_4160541.ef31499a.png",
+    "static/media/—Pngtree—cartoon tree_230886.png": "/React-memory-Game/static/media/—Pngtree—cartoon tree_230886.7605cb0c.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.a168a6c5.js",
+    "static/js/2.e23e2a40.chunk.js",
+    "static/css/main.dcfaa90d.chunk.css",
+    "static/js/main.f0ad113b.chunk.js"
+  ]
+}
