@@ -510,7 +510,7 @@ transform: rotateY(
       .Game-Container{
         display: grid;
         grid-template-columns: 100%;
-        grid-template-rows: 10% 80% 10%;
+        grid-template-rows: 12.5% 70% 12.5% 5%;
         width: 100vw;
       }
       .Game-Container .Blocks-Container{
