@@ -14,6 +14,7 @@ const SignUpLogin =(props) =>  {
   const Auth = props.Auth
   const Usersdb = props.Usersdb  
   let [CredError , setCredError] = useState(false)
+  let [CredErrormessage , setCredErrormessage] = useState()
   let [SignUpLoginStatus , setSignUpLoginStatus] = useState(true)
 
 
@@ -48,6 +49,7 @@ const SignUpLogin =(props) =>  {
             return
           }else{
             setCredError(true)
+            setCredErrormessage(String(err))
             setTimeout(() => {
               setCredError(false)
             }, 4000);
@@ -64,7 +66,7 @@ const SignUpLogin =(props) =>  {
       <div className='CoverPic'><img src={require("./img/b7ffa7fc9c4ceafa0013dfa3f803bcc8.jpg").default}/></div>
       <CredSignUpForm props = {{CredSignUpUser}} />
 
-<CredErrorComponent props = {{CredError}}/>
+<CredErrorComponent props = {{CredError , CredErrormessage}}/>
       <div className="SignupLoginWrapper">
 
   

@@ -195,11 +195,6 @@ useEffect(() =>{
 
 
 
-// useEffect(() =>{
-//  console.log(window.location.href.includes("home")) 
-//   let arr = window.location.href.split("/")
-//   console.log(arr)
-// })
 
   return (
     <>
