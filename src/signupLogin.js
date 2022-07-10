@@ -45,11 +45,16 @@ const SignUpLogin =(props) =>  {
         }
       ).catch(
         (err) =>{
-          if(String(err).includes("auth/popup-closed-by-user")){
+          if(String(err).includes("auth/popup-closed-by-user") || String(err).includes("auth/cancelled-popup-request")){
             return
           }else{
-            setCredError(true)
-            setCredErrormessage(String(err))
+            if(String(err).includes("auth/account-exists-with-different-credential")){
+              setCredError(true)
+              setCredErrormessage("This Account is exist with different Credential")
+            }else{
+              setCredError(true)
+              setCredErrormessage(String(err))
+            }
             setTimeout(() => {
               setCredError(false)
             }, 4000);

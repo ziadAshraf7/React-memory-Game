@@ -202,13 +202,13 @@ useEffect(() =>{
 
     <Router>
       <Routes>
-     <Route path = "/" element={<Navigate to = {"../home"} />} />   
+     <Route path = "" element={<Navigate to = {"../home"} />} />   
 
 
   {(Authenticated === null || Authenticated === false ) && CredStatus === false  && <Route  path="home" element={<HomePage  />}/>}
   {Authenticated === true && <Route  path="home" element={<Navigate to = {"../game"}  />}/>}
   {CredStatus == true  && <Route  path="home" element={<PageNotFound Auth = {Auth} CredStatus = {CredStatus}  IsUserOnline={IsUserOnline} />}/>}
-  <Route  path = "/home" element={<Loading />} />
+  <Route  path = "home" element={<Loading />} />
 
 
   {Authenticated === true && 
