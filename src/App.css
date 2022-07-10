@@ -114,14 +114,10 @@
 
 
  .Game{
-
   width: 100vw;
   height: 100vh;
   position: absolute;
   z-index: 1;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50% , -50%);
   transition: all 0.5s;
  }
 
@@ -142,7 +138,7 @@
  .User-Container-data .LogOut{
   position: absolute;
   padding: 10px 40px;
-  top: 10px;
+  top: 50px;
   left: 10px;
  }
 
@@ -185,8 +181,8 @@
 .Game-Container {
   display: grid;
   grid-template-columns: 25% 50% 25%;
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
 }
 
 .Game-Container .Blocks-Container{
@@ -518,7 +514,7 @@ transform: rotateY(
         grid-column: inherit;
       }
       .Game-Container .Blocks-Container .Blocks{
-        width: 85%;
+        width: 90%;
       }
 
       .Game-Container .Game-data{
@@ -527,15 +523,12 @@ transform: rotateY(
         height: fit-content;
         grid-column: inherit;
         justify-content: center;
-        grid-row: 1/1;
+        grid-row: 1/2;
       }
 
 
       .Game-Container .Retry-Round {
         display: initial;
-        height: fit-content;
-        margin-left: 0;
-        margin-top: 0;
         grid-row: 3/3;
     }
 
@@ -573,12 +566,10 @@ transform: rotateY(
       right: 20px;
   }
   .Game-Container .Game-data .Game-data-bar {
-
     width: 300px;
-    height: 30px;
+    height: 25px;
     border-radius: 5px 5px 5px 5px;
     font-size: 13px;
-    margin-top: 20px;
   }
 
 .Retry-Round-btn .GameBTN{
@@ -655,8 +646,6 @@ transform: rotateY(
   
   .Game-Container .Game-data .Game-data-bar {
     width: 245px;
-    margin-top: 5px;
-    height: 30px;
     font-size: 11px;
   }
   .lastResults{
