@@ -138,7 +138,7 @@
  .User-Container-data .LogOut{
   position: absolute;
   padding: 10px 40px;
-  top: 50px;
+  top: 10px;
   left: 10px;
  }
 
@@ -214,6 +214,10 @@
   grid-column: 1/1;
 }
 
+.Game-Container .Retry-Round .Retry-Round-btn{
+  grid-column: 10/50;
+  grid-row: 85/100;
+}
 
 
 .Cart-parent{
@@ -529,7 +533,7 @@ transform: rotateY(
 
       .Game-Container .Retry-Round {
         display: initial;
-        grid-row: 3/3;
+        grid-row: 3/4;
     }
 
     .Home-wrapper .header > p{
@@ -613,11 +617,7 @@ transform: rotateY(
         width: 30px;
         height: 30px;
       }
-      .Game-Container{
-        grid-template-rows: 10% 80% 10%;
-        grid-template-columns: 100%;
-        width: 100vw;
-      }
+    
       .Game-Container .Blocks-Container{
         grid-row: 2/2;
         grid-column: inherit;
