@@ -206,7 +206,7 @@
 }
 
 .Game-Container .Retry-Round{
-  height: 100vh;
+  height: 100%;
   width: 100%;
   display: grid;
   grid-template-columns: repeat(50 , 1fr);
@@ -510,11 +510,11 @@ transform: rotateY(
       .Game-Container{
         display: grid;
         grid-template-columns: 100%;
-        grid-template-rows: 12.5% 70% 12.5% 5%;
+        grid-template-rows: repeat(25,1fr);
         width: 100vw;
       }
       .Game-Container .Blocks-Container{
-        grid-row: 2/3;
+        grid-row: 3/23;
         grid-column: inherit;
       }
       .Game-Container .Blocks-Container .Blocks{
@@ -527,13 +527,13 @@ transform: rotateY(
         height: fit-content;
         grid-column: inherit;
         justify-content: center;
-        grid-row: 1/2;
+        grid-row: 2/3;
       }
 
 
       .Game-Container .Retry-Round {
         display: initial;
-        grid-row: 3/4;
+        grid-row: 23/25;
     }
 
     .Home-wrapper .header > p{
@@ -635,10 +635,7 @@ transform: rotateY(
       .signlogin {
         padding: 8px;
         font-size: 11px;}
-      .Game-Container .Retry-Round {
-        bottom: 10px;
-        left: 25px;
-    }
+    
   
   .Game-Container .Game-data .Game-data-bar {
     width: 245px;
