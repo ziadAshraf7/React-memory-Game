@@ -95,7 +95,7 @@ const Gamedata = (props) =>{
         </div>
 
      <div className="GameBTNWrapper">
-         <button className="GameBTN" onClick={UserInfoCompAccsesFunc}>click</button>
+         <button className="GameBTN" onClick={UserInfoCompAccsesFunc}>Last Results</button>
      </div>
 </div>
         </>
