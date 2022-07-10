@@ -295,7 +295,7 @@ transform: rotateY(
     display: flex;
     flex-direction: column;
     transition: all 0.3s;
-  
+    align-items: center;
     }
 
     .Form .FormHeader{
@@ -509,14 +509,13 @@ transform: rotateY(
         height: 25px;
       }
       .Game-Container{
-        display: grid;
-        grid-template-columns: 100%;
-        grid-template-rows: repeat(25,1fr);
+        display: flex;
+        flex-direction: column;
         width: 100vw;
       }
       .Game-Container .Blocks-Container{
-        grid-row: 3/23;
-        grid-column: inherit;
+        order: 2;
+        height: 75%;
       }
       .Game-Container .Blocks-Container .Blocks{
         width: 90%;
@@ -526,15 +525,15 @@ transform: rotateY(
         width: 100%;
         display: flex;
         height: fit-content;
-        grid-column: inherit;
         justify-content: center;
-        grid-row: 2/3;
+        order: 1;
       }
 
 
       .Game-Container .Retry-Round {
-        display: initial;
-        grid-row: 23/25;
+       order: 3;
+       height: fit-content;
+       display: initial;
     }
 
     .Home-wrapper .header > p{
@@ -567,7 +566,7 @@ transform: rotateY(
 
     .Game-Container .Game-data .GameBTN {
       position: absolute;
-      bottom: 60px;
+      bottom: 40px;
       right: 20px;
   }
   .Game-Container .Game-data .Game-data-bar {
@@ -579,7 +578,7 @@ transform: rotateY(
 
 .Retry-Round-btn .GameBTN{
   position: absolute;
-  bottom: 20px;
+  bottom: 40px;
   left: 20px;
 }
     }
@@ -629,6 +628,7 @@ transform: rotateY(
         height: fit-content;
         grid-column: inherit;
         justify-content: center;
+        order: 1;
       }
       .Home-wrapper .header > p{
         font-size: 20px;
