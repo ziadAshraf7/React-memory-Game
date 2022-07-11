@@ -71,7 +71,7 @@ const SignUpLogin =(props) =>  {
       <div className='CoverPic'><img src={require("./img/b7ffa7fc9c4ceafa0013dfa3f803bcc8.jpg").default}/></div>
       <CredSignUpForm props = {{CredSignUpUser}} />
 
-<CredErrorComponent props = {{CredError , CredErrormessage}}/>
+   <CredErrorComponent props = {{CredError , CredErrormessage}}/>
       <div className="SignupLoginWrapper">
 
   
