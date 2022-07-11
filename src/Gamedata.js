@@ -89,13 +89,13 @@ const Gamedata = (props) =>{
         <div className="Game-data-bar">
             <div className="timer-data">
                 <span>Count Down : </span>
-                  <span  style={CounterDownMinutes.current == 0 && CounterDownSeconds.current < 10 ? {color : "red" , fontSize : "20px"} : {color : "black"}}>{CountDown}</span>
+                  <span  style={CounterDownMinutes.current == 0 && CounterDownSeconds.current < 10 ? {color : "red" , fontSize : "15px"} : {color : "black"}}>{CountDown}</span>
             </div>
             <div className="wrong-tries">wrong Tries:{wrongTries}</div>
         </div>
 
      <div className="GameBTNWrapper">
-         {show&& <button className="GameBTN" onClick={UserInfoCompAccsesFunc}>Last Results</button>}
+         {show && <button className="GameBTN" onClick={UserInfoCompAccsesFunc}>Last Results</button>}
      </div>
 </div>
         </>
