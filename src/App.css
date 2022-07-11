@@ -566,7 +566,7 @@ transform: rotateY(
 
     .Game-Container .Game-data .GameBTN {
       position: absolute;
-      top: 375px;
+      bottom: 0;
       right: 20px;
   }
   .Game-Container .Game-data .Game-data-bar {
