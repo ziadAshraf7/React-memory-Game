@@ -40,7 +40,7 @@ let CredSignUpForm = (props) =>{
     }
 
     return(
-        <div style={CredSignUpUser  ? {transform : "translateX(0) scale(100%)"  } : {transform : "translateX(100%) scale(0)" }}  className="CredSignUpForm">
+        <div style={CredSignUpUser  ? {transform : "translateX(0)" ,visibility : "visible"  } : {transform : "translateX(100%)" ,visibility : 'visible' }}  className="CredSignUpForm">
            <button onClick={ReturnBack} style={{position : "absolute" , left : "10px" , top : "10px"}}><img style={{width : "30px" , height : "30px" , cursor : "pointer"}} src={require("./img/—Pngtree—vector left arrow icon_4184717.png").default} /></button>
            <div className="FormContainer">
             <form className="Form">
