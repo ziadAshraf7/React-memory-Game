@@ -71,8 +71,8 @@
   padding: 10px;
   font-size: 15px;
   letter-spacing: 3px;
-  background-color: #ffb85b;
-  border: 1px solid #8400ff;
+  background-color: #ffff5b;
+  border: 1px solid #fbff00;
   color: #302f2f;
   cursor: pointer;
  }
@@ -566,7 +566,7 @@ transform: rotateY(
 
     .Game-Container .Game-data .GameBTN {
       position: absolute;
-      bottom: 40px;
+      top: 375px;
       right: 20px;
   }
   .Game-Container .Game-data .Game-data-bar {
@@ -578,7 +578,7 @@ transform: rotateY(
 
 .Retry-Round-btn .GameBTN{
   position: absolute;
-  bottom: 40px;
+  top: 375px;
   left: 20px;
 }
     }
