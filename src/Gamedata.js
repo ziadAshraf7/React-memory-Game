@@ -5,7 +5,7 @@ import {  doc, setDoc} from "firebase/firestore";
 
 
 const Gamedata = (props) =>{
-    let {wrongTries , EndGameMassage , PassedGame , setModalAccsesFunc , RetryBtnAccsesFunc , PreventPlaying , PlayAccses , UserInfoCompAccsesFunc} = props.props
+    let {wrongTries , show , EndGameMassage , PassedGame , setModalAccsesFunc , RetryBtnAccsesFunc , PreventPlaying , PlayAccses , UserInfoCompAccsesFunc} = props.props
     let IsUserOnline = props.IsUserOnline
     let {CountDown  , CounterDownFunc , StopCounterDown , resetCounterDown ,CounterDownSecondsDefaultValue,CounterDownMinutesDefaultValue , CounterDownMinutes ,CounterDownSeconds } = UseCounterDown()
     let {UserInfo, Usersdb  ,userDataLoading} = useContext(Context)
@@ -95,7 +95,7 @@ const Gamedata = (props) =>{
         </div>
 
      <div className="GameBTNWrapper">
-         <button className="GameBTN" onClick={UserInfoCompAccsesFunc}>Last Results</button>
+         {show&& <button className="GameBTN" onClick={UserInfoCompAccsesFunc}>Last Results</button>}
      </div>
 </div>
         </>

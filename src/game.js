@@ -147,11 +147,13 @@ const Game = (props) => {
       let EmptyArray = [...Array(GameCarts.length)]
       let [UserInfoCompAccses , setUserInfoCompAccses] = useState(false)
       let [ModalAccses , setModalAccses] = useState(false)
+      let [show , setShow] = useState()
       let EndGameMassage = useRef("")
       const FlibedCartStyle  = {transform : "rotateY(180deg)" ,  transition:"all 1s"}  
       const UnFlibedCartStyle = {transform : "rotateY(0)" , transition:"all 1s"}  
       let { Auth  } = props.props
       let {ClickHandler ,  matchedCarts  , RandomIndexes   , RetryBtnAccsesFunc, clickedCarts , StartPlaying , RetryGameBtnAccses , PreventPlaying,startGameBtnAccses ,  PlayAccses , wrongTries , PassedGame} = UseMemory(GameCarts)     
+
 
 
       
@@ -169,6 +171,23 @@ const Game = (props) => {
       } 
 
 
+      useEffect(() =>{
+
+        if(window.innerWidth <= 600){
+          setShow(false)
+        }else{
+          setShow(true)
+        }
+
+        window.addEventListener("resize" , () =>{
+          if(window.innerWidth <= 600){
+            setShow(false)
+          }else{
+            setShow(true)
+          }
+        })
+      },[])
+
     return ( 
         <>
 
@@ -185,9 +204,10 @@ const Game = (props) => {
        <UserLastResults props= {{LogingOutFunc , UserInfoCompAccses}}  />
 
      <div className="Game-Container">
-      <div className="Retry-Round">
-          <div className="Retry-Round-btn">
+      <div className="GameButtons">
+          <div className="Buttons">
              {RetryGameBtnAccses &&  <button className="GameBTN" onClick={StartPlaying} >Retry</button>}
+             {!show && <button className="GameBTN" onClick={UserInfoCompAccsesFunc}>Last Results</button>}
           </div>
           </div>   
      <div className="Blocks-Container">
@@ -201,7 +221,7 @@ const Game = (props) => {
     })}
          </div>   
          </div>
-        <Gamedata props = {{wrongTries , EndGameMassage , setModalAccsesFunc , PassedGame , RetryBtnAccsesFunc , PreventPlaying , PlayAccses , UserInfoCompAccsesFunc}}    />
+        <Gamedata props = {{wrongTries , show , EndGameMassage , setModalAccsesFunc , PassedGame , RetryBtnAccsesFunc , PreventPlaying , PlayAccses , UserInfoCompAccsesFunc}}    />
   </div>
   </div>
 
