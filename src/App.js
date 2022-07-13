@@ -1,6 +1,6 @@
 import React, {  useEffect, useRef, useState } from 'react';
 import { initializeApp } from "firebase/app";
-import {getFirestore, collection , getDoc ,setDoc , deleteDoc , doc, onSnapshot, getDocs} from "firebase/firestore"; 
+import {getFirestore, collection , getDoc ,  doc, onSnapshot, getDocs} from "firebase/firestore"; 
 import Game from './game';
 import { BrowserRouter as Router, Routes, Route , Navigate } from "react-router-dom";
 import HomePage from './Home';
