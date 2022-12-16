@@ -5,7 +5,7 @@ import SignUp from "../Components/signUp"
 import { Text } from '@chakra-ui/react'
 import { auth } from "../firebase/config"
 import { motion, AnimatePresence } from "framer-motion"
-import Cred from "../Components/cred"
+import Cred from "../Components/credintial"
 import { useAuthState } from 'react-firebase-hooks/auth';
 import {
     Alert,

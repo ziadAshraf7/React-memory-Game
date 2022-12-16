@@ -5,7 +5,7 @@ import {
   Route,
 } from "react-router-dom";
 import Home from './pages/Home';
-import CardsNumber from './pages/cardsNumber';
+import BlocksCount from './pages/blocks Count';
 import Difficulty from './pages/difficulty';
 import Game from './pages/game';
 import { useEffect, useState } from 'react';
@@ -47,7 +47,7 @@ function App() {
        <Routes>
             <Route path='/' element = {<Home authenticatedUser = {authenticatedUser} />} />
             
-            <Route path='/cardsNumber' element = {<CardsNumber 
+            <Route path='/cardsNumber' element = {<BlocksCount 
               selectedBlocksCount = {selectedBlocksCount} 
               selectedDifficulty = {selectedDifficulty} 
               setBlocksCount = {setBlocksCount} 
