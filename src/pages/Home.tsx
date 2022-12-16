@@ -30,13 +30,13 @@ function Home({
                <motion.div
                   variants={subHeadingVariant}
                >
-                 <Text fontFamily={'Rubik Microbe'} mb = {3} fontSize = {["xs" , "lg" , "xl"]} color={"#f5f5f5"}>you can choose difficulty level</Text>
+                 <Text letterSpacing={[1,2]} fontFamily={'Kalam'} mb = {3} fontSize = {["xs" , "lg" , "xl"]} color={"#f5f5f5"}>you can choose difficulty level</Text>
                 </motion.div>
 
                 <motion.div
                   variants={subHeadingVariant}
                 >
-                    <Text fontFamily={'Rubik Microbe'} mb = {5} fontSize = {["xs" , "lg" , "xl" ]} color={"#f5f5f5"}>you can choose your Blocks number</Text>
+                    <Text letterSpacing={[1,2]} fontFamily={'Kalam'} mb = {5} fontSize = {["xs" , "lg" , "xl" ]} color={"#f5f5f5"}>you can choose your Blocks number</Text>
                </motion.div>
            
                 <motion.button
