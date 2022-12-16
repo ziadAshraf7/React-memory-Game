@@ -13,12 +13,10 @@ import { Spinner } from '@chakra-ui/react'
 import { CardsNumberPageProps } from '../Types/types'
 
 
-
-
 function CardsNumber({
     selectedDifficulty ,
-    setCardsNumber ,
-    selectedCardsNumber ,
+    setBlocksCount ,
+    selectedBlocksCount ,
     authenticatedUser
 }:CardsNumberPageProps){
 
@@ -77,7 +75,7 @@ function CardsNumber({
                 return (
                     <motion.div 
                     key = {item}
-                    onClick={() => setCardsNumber(item)} 
+                    onClick={() => setBlocksCount(item)} 
                     variants={selectionItems}
                     whileHover = {"hover"}
                     style={{
@@ -89,11 +87,11 @@ function CardsNumber({
                         width : "100%" , 
                         cursor : "pointer" , 
                         color : "#FFF5F5" ,
-                        backgroundColor : selectedCardsNumber == item ? "RGBA(0, 0, 0, 0.24)" : "RGBA(0, 0, 0, 0.06)"
+                        backgroundColor : selectedBlocksCount == item ? "RGBA(0, 0, 0, 0.24)" : "RGBA(0, 0, 0, 0.06)"
                     }}>{item}</motion.div>
                 )
            })}
-                   {selectedCardsNumber &&
+                   {selectedBlocksCount &&
                             <motion.button
                             variants={selectionBtn}
                             initial = {"initial"}

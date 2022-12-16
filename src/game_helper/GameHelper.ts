@@ -9,7 +9,6 @@ export const gameImages = [
     "cross.png" ,
     "download.png" ,
     "e035e610-b4b6-4870-9c26-9c488fb844b2.jfif" ,
-    "facebook-logo-png-38360.png" ,
     "google-logo-png-open-2000.png" ,
     "images.jpg" ,
     "images.png" ,
@@ -29,6 +28,12 @@ export const gameImages = [
     "Wings PNG - Free Download.jfif",
     "@darlingpngss.jfif"
 ]
+
+export const difficultyMatchedImgsNumber : {[p : string] : number} = {
+    easy : 2 ,
+    hard : 3 ,
+    pro : 4
+}
 
 export const difficultyCardsNumber : {[p : string] : number[]} = {
     easy : [12 , 24 , 36 ], 

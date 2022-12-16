@@ -25,24 +25,24 @@ function Home({
             animate = {"visible"}
          >
          
-           <Heading mb = {3}  letterSpacing={5} size = {["xl" , "2xl" , "3xl" , "4xl"]} color={"#b0bec5"}>Memorey Game</Heading>
+           <Heading mb = {3}  letterSpacing={[5 , 10]} size = {["2xl" , "3xl" , "4xl" ]} color={"#424242"}>Memory Game</Heading>
               
                <motion.div
                   variants={subHeadingVariant}
                >
-                 <Text fontFamily={'Rubik Microbe'} mb = {3} fontSize = {["sm" , "lg" , "xl"]} color={"grey"}>you can choose difficulty level</Text>
+                 <Text fontFamily={'Rubik Microbe'} mb = {3} fontSize = {["xs" , "lg" , "xl"]} color={"#f5f5f5"}>you can choose difficulty level</Text>
                 </motion.div>
 
                 <motion.div
                   variants={subHeadingVariant}
                 >
-                    <Text fontFamily={'Rubik Microbe'} mb = {5} fontSize = {["sm" , "lg" , "xl" ]} color={"grey"}>you can choose your Blocks number</Text>
+                    <Text fontFamily={'Rubik Microbe'} mb = {5} fontSize = {["xs" , "lg" , "xl" ]} color={"#f5f5f5"}>you can choose your Blocks number</Text>
                </motion.div>
            
                 <motion.button
                   variants={subHeadingVariant}
                >
-                    <Button as={Link} href = {authenticatedUser ?  "difficulty" : "register"}>Get Started</Button>
+                    <Button as={Link} size = {["xs" , "sm" , "md" ]} href = {authenticatedUser ?  "difficulty" : "register"}>Get Started</Button>
                </motion.button>
 
             </motion.div>

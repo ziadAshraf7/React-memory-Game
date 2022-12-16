@@ -1,58 +1,41 @@
+import { difficultyMatchedImgsNumber } from "../game_helper/GameHelper"
+import { difficultyType, gameBlockType } from "../Types/types"
+
 export const gameHeadBarHeight = 60
 
 
-function matchNumberCheck(matchNumbersArray : number[] , newMatchNumber : number):boolean{
-    return matchNumbersArray.includes(newMatchNumber)
-}
-
-
-export const difficultyImgsNumber : {[p : string] : number} = {
-    easy : 2 ,
-    hard : 3 ,
-    pro : 4
-}
-
-export const generateCards = (cardsNumber : number , imgsArray : string[] , difficulty : string) =>{
-
-    if(!cardsNumber && !difficulty){
-        return
-    }
-
-    let cardsDataArray : {
-        img : string ,
-        matchNumber : number , 
-        id : number
-     }[] = []
-
-    let matchNumbersArray : number[] = []
-
-    let cardId = 0
+export function gameBlocksGenerate(cardsNumber : number , imgsArray : string[] , difficulty : difficultyType){
+    if(!difficulty || !cardsNumber) return
+    let blocksData : gameBlockType[] = []
+    let mathcNumberArray : number[] = []
+    let blocksImgsArray : string[]= []
+    let blockId = 0
     
-      Array.from(new Array(cardsNumber / (difficultyImgsNumber[difficulty])),() =>{
-        let randomIndex = Math.floor(Math.random() * imgsArray.length)
-        let matchNumber = Math.floor(Math.random() * 100)
-        let randomImg = imgsArray[randomIndex]
-        imgsArray.splice(randomIndex , 1)
-        
-        if(matchNumberCheck(matchNumbersArray , matchNumber)){
-            matchNumber = Math.floor(Math.random() * 100)
-            matchNumberCheck(matchNumbersArray , matchNumber)
-        }else{
-            matchNumbersArray.push(matchNumber) 
-        }
+    while(blocksData.length < cardsNumber){
+        let randomImg =  blockImgCheck(blocksImgsArray , imgsArray) 
+        blocksImgsArray.push(randomImg)
+        let randomMatchNumber = matchNumberCheck(mathcNumberArray)
+        mathcNumberArray.push(randomMatchNumber)
 
-        Array.from(new Array(difficultyImgsNumber[difficulty]),() =>{
-            cardId += 1
-            cardsDataArray.push({
-                img : randomImg , 
-                matchNumber : matchNumber , 
-                id : cardId
-            })
+        new Array(difficultyMatchedImgsNumber[difficulty]).fill(null).forEach(() =>{
+            blockId++
+            blocksData.push({img : randomImg , matchNumber : randomMatchNumber , id : blockId })
         })
-    })
 
- return cardsDataArray
+    }
+    return blocksData
 }
+
+function blockImgCheck(blocksImgsArray: any,imgsArray: string | any[]):string{
+    let randomImg = imgsArray[Math.floor(Math.random() * imgsArray.length)]
+    return blocksImgsArray.includes(randomImg) ? blockImgCheck(blocksImgsArray , imgsArray) : randomImg 
+}
+
+function matchNumberCheck(matchNumbersArray : number[]) : number {
+    let mathcNumber = Math.floor(Math.random() * 10000)
+    return matchNumbersArray.includes(mathcNumber) ? matchNumberCheck(matchNumbersArray) : mathcNumber 
+}
+
 
 export const generateRandomArray = (array : any[] | undefined) =>{
     if(!array){

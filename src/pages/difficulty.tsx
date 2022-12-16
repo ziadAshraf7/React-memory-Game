@@ -18,6 +18,7 @@ function Difficulty({
     setDifficulty ,
     authenticatedUser
 }:difficultyPageProps){
+    
     let difficulties = Object.keys(difficultyCardsNumber)
     let navigate = useNavigate()
     let [mockLoading , setMockLoading] = useState(true)

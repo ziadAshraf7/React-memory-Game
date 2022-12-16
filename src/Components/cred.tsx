@@ -1,10 +1,10 @@
-import { HStack, Button, Center, Drawer, DrawerBody, DrawerCloseButton, DrawerContent, DrawerOverlay, FormControl, FormLabel, Input, useDisclosure } from "@chakra-ui/react"
+import { HStack, Button, Center, Drawer, DrawerBody, DrawerCloseButton, DrawerContent, DrawerOverlay, FormControl, FormLabel, Input, useDisclosure, IconButton } from "@chakra-ui/react"
 import { FacebookAuthProvider, GoogleAuthProvider, signInWithPopup, signOut } from "firebase/auth"
 import { doc, getDoc, setDoc } from "firebase/firestore"
 import { useRef, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { auth, db } from "../firebase/config"
-
+import { Image } from '@chakra-ui/react'
 
 type props = {
     setCredError: React.Dispatch<React.SetStateAction<boolean>>
@@ -109,8 +109,21 @@ function Cred({
         </DrawerContent>
       </Drawer>
              <HStack>
-                 <Button onClick={() => handleCred(FacebookAuthProvider)} colorScheme='facebook'>Facebook</Button>
-                 <Button onClick={() => handleCred(GoogleAuthProvider)}>Google</Button>
+                <Image 
+                onClick={() => handleCred(FacebookAuthProvider)} 
+                cursor={"pointer"} 
+                _hover = {{transform : "scale(0.8)" , transition : "ease 0.3s"}} 
+                w = {12} 
+                src={require('../imgs/pngwing.com .png')} >
+                </Image>
+            <Image 
+                onClick={() => handleCred(GoogleAuthProvider)} 
+                cursor={"pointer"} 
+                _hover = {{transform : "scale(0.6)" , transition : "ease 0.3s"}} 
+                w = {12} 
+                transform = {"scale(0.8)"}
+                src={require('../imgs/google-logo-png-open-2000.png')} >
+            </Image>
             </HStack>
                     
     </>

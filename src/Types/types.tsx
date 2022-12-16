@@ -12,8 +12,8 @@ export type HomePageProps = {
 
  export type CardsNumberPageProps = {
     selectedDifficulty : difficultyType,
-    setCardsNumber: React.Dispatch<React.SetStateAction<number>>,
-    selectedCardsNumber : number | undefined ,
+    setBlocksCount: React.Dispatch<React.SetStateAction<number>>,
+    selectedBlocksCount : number | undefined ,
     authenticatedUser : boolean  | undefined 
 }
 
@@ -27,7 +27,7 @@ export type difficultyPageProps = {
 
 export type gamePageProps = {
     selectedDifficulty : difficultyType,
-    selectedCardsNumber : number , 
+    selectedBlocksCount : number , 
     authenticatedUser : boolean | undefined 
 }
 
@@ -35,4 +35,21 @@ export type gamePageProps = {
 export type modalPropsType = {
     isOpen : boolean
     onClose : () => void
+}
+
+
+export type gameBlockType = {
+    img : string , 
+    matchNumber : number , 
+    id : number
+}
+
+export type gameBlockComponentProps = {
+    img : string ,
+    flippCard : (block : gameBlockType) => void , 
+    isFilipped : boolean , 
+    isMatched : boolean ,
+    block : gameBlockType ,
+    turnNumber : number ,
+    difficulty : difficultyType
 }

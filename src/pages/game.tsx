@@ -1,8 +1,7 @@
 import {useEffect, useState } from "react"
-import Card from "../Components/card"
-import { cardsColsNumber, cardsDims, gameImages, gameStartDelay, gameTips } from "../game_helper/GameHelper"
+import { cardsColsNumber, cardsDims, difficultyMatchedImgsNumber, gameImages, gameStartDelay, gameTips } from "../game_helper/GameHelper"
 import useMemory from "../hooks/useMemory"
-import { difficultyImgsNumber, gameHeadBarHeight, generateCards, generateRandomArray } from "../utils/utils"
+import { gameHeadBarHeight, gameBlocksGenerate, generateRandomArray } from "../utils/utils"
 import { Container, Flex, IconButton, Link, Popover, PopoverArrow, PopoverBody, PopoverCloseButton, PopoverContent, PopoverHeader, PopoverTrigger, SimpleGrid, Spinner, Tooltip, useDisclosure } from '@chakra-ui/react'
 import {GridItem } from '@chakra-ui/react'
 import Timer from "../Components/timer"
@@ -15,6 +14,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import UserInfoModal from "../Components/user_Info"
 import WinModal from "../Components/winModal"
 import {gamePageProps } from "../Types/types"
+import Block from "../Components/game block"
 
 
 
@@ -22,23 +22,22 @@ import {gamePageProps } from "../Types/types"
 
 function Game({
     selectedDifficulty ,
-    selectedCardsNumber ,
+    selectedBlocksCount ,
     authenticatedUser ,
 }:gamePageProps){
    
     const [user, loading] = useAuthState(auth)
 
-    let {difficulty , cardsNumber} = useLocalStorage(selectedDifficulty , selectedCardsNumber)
+    let {difficulty , blocksCount} = useLocalStorage(selectedDifficulty , selectedBlocksCount)
     let [gameOver , setGameOver] = useState(false)
     let [gameStart , setGameStart] = useState(false)
     let [gameWin , setGameWin] = useState(false)
     let [timerStart , setTimerStart] = useState(false)
     let [turnNumber , setTurnNumber] = useState(1)
-    let [cards] = useState(() => generateCards(cardsNumber , gameImages , difficulty))
-    let [randomCards , setRandomCards] = useState(() => generateRandomArray(cards))
+    let [blocks] = useState(() => gameBlocksGenerate(blocksCount , gameImages , difficulty))
+    let [randomBlocks , setRandomBlocks] = useState(() => generateRandomArray(blocks))
     let [passedGameMins , setPassedGameMins] = useState<number>()
     let [passedGameSecs , setPassedGameSecs] = useState<number>()
-
 
     // user Info modal
     const { isOpen : isOpen1, onOpen : onOpen1, onClose : onClose1 } = useDisclosure()
@@ -49,11 +48,11 @@ function Game({
 
     let { 
         flippedCardsIds , 
-        matchedCards ,
+        matchedBlocks ,
         setCanFlipp, 
         flippCard ,
         setWrongTries ,
-        setMatchedCards,
+        setMatchedBlocks,
         setFlippedCards,
         setFlippedCardsIds,
         wrongTries } = useMemory(difficulty)
@@ -66,7 +65,7 @@ function Game({
                     rounds : [...snapshot?.data()?.rounds , {
                         date : Timestamp.fromDate(new Date()) ,
                         difficulty : difficulty , 
-                        gameBlocksNumber : cardsNumber ,
+                        gameBlocksNumber : blocksCount ,
                         wrongTries : wrongTries ,
                         passedGameTime : {seconds :passedGameSecs , minutes : passedGameMins }
                     }]
@@ -88,13 +87,13 @@ function Game({
     setGameStart(true)
     setWrongTries(0)
     setGameWin(false)
-    setMatchedCards([])
+    setMatchedBlocks([])
     setFlippedCards([])
     setFlippedCardsIds([])
     setGameOver(false)
     setTimerStart(false)
     setTurnNumber(prev => prev + 1)
-    setRandomCards(generateRandomArray(cards))
+    setRandomBlocks(generateRandomArray(blocks))
     setTimeout(() => {
         setTimerStart(true)
         setCanFlipp(true)
@@ -102,18 +101,17 @@ function Game({
    }
 
    useEffect(() =>{
-    if(difficulty && cardsNumber){
-        if(matchedCards.length * (difficultyImgsNumber[difficulty]) == cardsNumber){
+    if(difficulty && blocksCount){
+        if(matchedBlocks.length * (difficultyMatchedImgsNumber[difficulty]) == blocksCount){
             setGameWin(true)
             onOpen2()
         }
     }
-   },[cardsNumber,matchedCards,difficulty])
+   },[blocksCount,matchedBlocks,difficulty])
 
 useEffect(() =>{
     if(gameWin && passedGameSecs !== undefined && passedGameMins !== undefined ){
         storePassedGameData()
-        console.log("game win")
     }
 },[gameWin , passedGameSecs , passedGameMins])
 
@@ -138,7 +136,7 @@ if(loading){
         </Center>)
 }
 
-   if(!difficulty && !cardsNumber){
+   if(!difficulty && !blocksCount){
     return (
     <Center w = {"100vw"} h = {"100vh"}>
         <Button as = {Link} href = {"../difficulty"} colorScheme={"teal"}>go to set difficulty level</Button>
@@ -220,22 +218,22 @@ if(loading){
        {(!gameOver && gameStart && !gameWin) && 
         <SimpleGrid 
         sx = {{transform:`translateY(-${(gameHeadBarHeight / 2) - 20}px)`}}
-        columns={cardsColsNumber[cardsNumber]} 
+        columns={cardsColsNumber[blocksCount]} 
         spacing={[3,6,7]}>
-        {randomCards?.map(card =>{
+        {randomBlocks?.map(block =>{
            return <GridItem
-                   key = {card.id}
-                   w = {cardsDims[cardsNumber]}
-                   h = {cardsDims[cardsNumber]}
+                   key = {block.id}
+                   w = {cardsDims[blocksCount]}
+                   h = {cardsDims[blocksCount]}
            >
-            <Card
-            card = {card}
+            <Block
+            block = {block}
             turnNumber = {turnNumber}
             difficulty = {difficulty}
-            img = {card.img}
+            img = {block.img}
             flippCard = {flippCard}
-            isFilipped = {flippedCardsIds.includes(card.id)} 
-            isMatched = {matchedCards.includes(card.matchNumber)}
+            isFilipped = {flippedCardsIds.includes(block.id)} 
+            isMatched = {matchedBlocks.includes(block.matchNumber)}
             />
             </GridItem>
         })}

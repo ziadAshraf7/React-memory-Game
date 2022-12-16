@@ -2,7 +2,7 @@ import {useState } from "react"
 import {difficultyType } from "../Types/types"
 
 
-function useLocalStorage(selectedDifficulty : difficultyType,selectedCardsNumber : number){
+function useLocalStorage(selectedDifficulty : difficultyType,selectedBlocksCount : number){
     let [difficulty] = useState(() =>{
         if(selectedDifficulty){
             localStorage.difficulty = selectedDifficulty
@@ -11,17 +11,17 @@ function useLocalStorage(selectedDifficulty : difficultyType,selectedCardsNumber
             return localStorage.difficulty
         }
     })
-    let [cardsNumber] = useState(() =>{
-        if(selectedCardsNumber){
-            localStorage.cardsNumber = selectedCardsNumber
-            return selectedCardsNumber
+    let [blocksCount] = useState(() =>{
+        if(selectedBlocksCount){
+            localStorage.blocksCount = selectedBlocksCount
+            return selectedBlocksCount
         }else{
-            return  localStorage.cardsNumber
+            return  localStorage.blocksCount
         }
     })
 
 
-   return {difficulty , cardsNumber}
+   return {difficulty , blocksCount}
 }
 
 

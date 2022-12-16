@@ -33,7 +33,6 @@ function UserInfoModal({
             }))
         }
     },[])
-console.log(userName)
 
     return (
         <Modal
@@ -58,7 +57,7 @@ console.log(userName)
 
              {userLastResults?.length == 0 &&<Center><Text>no last game results yet</Text></Center>}
 
-              { userLastResults.length > 0 && <TableContainer>
+             {userLastResults.length > 0 && <TableContainer>
                 <ModalHeader>Last Results</ModalHeader>
              <Table variant='simple'>
                  <Thead>

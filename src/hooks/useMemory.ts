@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
-import { difficultyType } from "../Types/types"
-import { difficultyImgsNumber } from "../utils/utils"
+import { difficultyMatchedImgsNumber } from "../game_helper/GameHelper"
+import { difficultyType, gameBlockType } from "../Types/types"
 
 
 
@@ -8,14 +8,14 @@ function useMemory(difficulty : difficultyType){
 
     let [flippedCards , setFlippedCards] = useState<any[]>([])
     let [flippedCardsIds , setFlippedCardsIds] = useState<number[]>([])
-    let [matchedCards , setMatchedCards] = useState<number[]>([])
+    let [matchedBlocks , setMatchedBlocks] = useState<number[]>([])
     let [canFlipp , setCanFlipp] = useState(false)
     let [wrongTries , setWrongTries] = useState(0)
     
-    function flippCard(card : any){
+    function flippCard(block : gameBlockType){
         if(canFlipp){
-            setFlippedCardsIds(prev => [...prev , card.id])
-            setFlippedCards(prev => [...prev , card])
+            setFlippedCardsIds(prev => [...prev , block.id])
+            setFlippedCards(prev => [...prev , block])
         }
     }
 
@@ -37,8 +37,8 @@ function useMemory(difficulty : difficultyType){
             }
 
 
-            if(isCardsMatched && flippedCards.length == (difficultyImgsNumber[difficulty])){
-                setMatchedCards(prev => [...prev , flippedMatchNumber])
+            if(isCardsMatched && flippedCards.length == (difficultyMatchedImgsNumber[difficulty])){
+                setMatchedBlocks(prev => [...prev , flippedMatchNumber])
                 setFlippedCards([])
                 setFlippedCardsIds([])
             }
@@ -46,7 +46,7 @@ function useMemory(difficulty : difficultyType){
         }
     },[flippedCards , flippedCardsIds])
 
-    return {setFlippedCards ,setWrongTries ,setFlippedCardsIds ,setMatchedCards ,wrongTries , setCanFlipp , flippedCards , matchedCards , flippCard , flippedCardsIds}
+    return {setFlippedCards ,setWrongTries ,setFlippedCardsIds ,setMatchedBlocks ,wrongTries , setCanFlipp , flippedCards , matchedBlocks , flippCard , flippedCardsIds}
 }
 
 

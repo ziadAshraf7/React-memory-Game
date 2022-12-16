@@ -19,7 +19,7 @@ import { difficultyType } from './Types/types';
 function App() {
 
   let [selectedDifficulty , setDifficulty] = useState<difficultyType>("")
-  let [selectedCardsNumber , setCardsNumber] = useState<number>(0)
+  let [selectedBlocksCount , setBlocksCount] = useState<number>(0)
   let [authenticatedUser , setAuthenticatedUser] = useState<boolean | undefined>(undefined)
 
 
@@ -48,9 +48,9 @@ function App() {
             <Route path='/' element = {<Home authenticatedUser = {authenticatedUser} />} />
             
             <Route path='/cardsNumber' element = {<CardsNumber 
-              selectedCardsNumber = {selectedCardsNumber} 
+              selectedBlocksCount = {selectedBlocksCount} 
               selectedDifficulty = {selectedDifficulty} 
-              setCardsNumber = {setCardsNumber} 
+              setBlocksCount = {setBlocksCount} 
               authenticatedUser = {authenticatedUser}
             />} />
           
@@ -64,7 +64,7 @@ function App() {
             <Route path='/game' element = {
                 <Game 
                 selectedDifficulty = {selectedDifficulty} 
-                selectedCardsNumber = {selectedCardsNumber} 
+                selectedBlocksCount = {selectedBlocksCount} 
                 authenticatedUser = {authenticatedUser}
                 />
             } />
