@@ -91,17 +91,28 @@ function BlocksCount({
                     }}>{item}</motion.div>
                 )
            })}
-                   {selectedBlocksCount &&
-                            <motion.button
+
+                   {selectedBlocksCount > 0 &&<motion.button
                             variants={selectionBtn}
                             initial = {"initial"}
                             animate = {"visible"}
                         >
-                <Button variant='outline' bg = {"grey.900"} color={"#EDF2F7"} _hover = {{color : "#1A202C" , bg : "#EDF2F7" , transition : "ease 0.8s" }} h = {8} w = {100} 
+                <Button 
+                variant='outline' 
+                bg = {"grey.900"} 
+                color={"#EDF2F7"} 
+                _hover = {{color : "#1A202C" , 
+                bg : "#EDF2F7" , 
+                transition : "ease 0.8s" }} 
+                h = {8} 
+                w = {100} 
                  onClick={() => navigate("../game")}>
                     Next
                 </Button>
                 </motion.button>}
+
+
+
         </Box>
         </Flex>
         </motion.div>

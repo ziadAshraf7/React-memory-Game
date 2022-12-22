@@ -13,7 +13,7 @@ export type HomePageProps = {
  export type CardsNumberPageProps = {
     selectedDifficulty : difficultyType,
     setBlocksCount: React.Dispatch<React.SetStateAction<number>>,
-    selectedBlocksCount : number | undefined ,
+    selectedBlocksCount : number  ,
     authenticatedUser : boolean  | undefined 
 }
 
