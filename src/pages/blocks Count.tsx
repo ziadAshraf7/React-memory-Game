@@ -66,7 +66,7 @@ function BlocksCount({
          minWidth={250}
          width={[250 , 350 , 500 , 750 , 900]}
          justifyContent={"space-around"} flexDirection={"column"} h = "full" w = "full" >
-        <Heading mb = {2} as='h1' color = "#FED7E2" size='lg' noOfLines={10}>
+        <Heading fontFamily={"sans-serif"} mb = {2} as='h1' color = "#FED7E2" size='lg' noOfLines={10}>
              Blocks number
         </Heading>
         <Box mb = {2}>

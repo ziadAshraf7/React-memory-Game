@@ -64,7 +64,7 @@ function Difficulty({
             minWidth={250}
              width={[300 , 400 , 500 , 750 , 900]}
              justifyContent={"space-around"} flexDirection={"column"} h = "full" w = "full" >
-            <Heading mb = {2} letterSpacing={3} size = {["sm" , "md" , "xl"]} as='h1' color = "#EDF2F7"  noOfLines={1}>
+            <Heading fontFamily={"sans-serif"} mb = {2} letterSpacing={4} size = {["sm" , "md" , "xl"]} as='h1' color = "#EDF2F7"  noOfLines={1}>
                  Difficulty
             </Heading>
             <Box mb = {2}>

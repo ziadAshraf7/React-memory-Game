@@ -54,8 +54,8 @@ export const cardsColsNumber : {[p : string] : (number | null)[]} = {
 export const cardsDims : {[p : number] : string[]} = {
     12 : ["70px", "90px" ,"100px" , "120px"] ,
     15 : ["70px", "90px" ,"100px" , "120px"] ,
-    24 : ["43px", "70px" ,"100px" , "115px"] ,
-    36 : ["45px", "50px" ,"72px" , "100px"] ,
+    24 : ["65px", "70px" ,"100px" , "115px"] ,
+    36 : ["55px", "60px" ,"72px" , "100px"] ,
     40 : ["55px", "62px" ,"75px" , "92px"]
 }
 

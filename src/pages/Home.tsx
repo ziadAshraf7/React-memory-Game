@@ -25,18 +25,18 @@ function Home({
             animate = {"visible"}
          >
          
-           <Heading mb = {3}  letterSpacing={[5 , 10]} size = {["2xl" , "3xl" , "4xl" ]} color={"#424242"}>Memory Game</Heading>
+           <Heading mb = {3}  letterSpacing={[5 , 10]} size = {["2xl" , "3xl" , "4xl" ]} color={"#616060"}>Memory Game</Heading>
               
                <motion.div
                   variants={subHeadingVariant}
                >
-                 <Text letterSpacing={[1,2]} fontFamily={'Kalam'} mb = {3} fontSize = {["xs" , "lg" , "xl"]} color={"#f5f5f5"}>you can choose difficulty level</Text>
+                 <Text letterSpacing={[1,2]} fontFamily={'sans , serif'} mb = {3} fontSize = {["xs" , "lg" , "xl"]} color={"#f5f5f5"}>you can choose difficulty level</Text>
                 </motion.div>
 
                 <motion.div
                   variants={subHeadingVariant}
                 >
-                    <Text letterSpacing={[1,2]} fontFamily={'Kalam'} mb = {5} fontSize = {["xs" , "lg" , "xl" ]} color={"#f5f5f5"}>you can choose your Blocks number</Text>
+                    <Text letterSpacing={[1,2]} fontFamily={'sans , serif'} mb = {5} fontSize = {["xs" , "lg" , "xl" ]} color={"#f5f5f5"}>you can choose your Blocks number</Text>
                </motion.div>
            
                 <motion.button
